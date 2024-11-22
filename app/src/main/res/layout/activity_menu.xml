@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnPersonas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personas" />
+
+        <Button
+            android:id="@+id/btnEmpresas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empresas" />
+
+        <Button
+            android:id="@+id/btnGraficas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gráficas" />
+
+        <Button
+            android:id="@+id/btnIA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IA" />
+
+        <Button
+            android:id="@+id/btnAnalisis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Análisis" />
+
+        <Button
+            android:id="@+id/btnPlanes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planes" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

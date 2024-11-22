@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Título y Barra de gráfico -->
+        <TextView
+            android:id="@+id/titleBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Barras"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título y Gráfico de líneas -->
+        <TextView
+            android:id="@+id/titleLineChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Líneas"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título y Gráfico de torta -->
+        <TextView
+            android:id="@+id/titlePieChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Torta"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título y Barra de gráfico por artículo -->
+        <TextView
+            android:id="@+id/titleBarChartByArticle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Barras por Artículo"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartByArticle"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título y Barra de gráfico apilada -->
+        <TextView
+            android:id="@+id/titleStackedBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Barras Apiladas"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/stackedBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título y Gráfico de dispersión -->
+        <TextView
+            android:id="@+id/titleScatterChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gráfico de Dispersión"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+        <com.github.mikephil.charting.charts.ScatterChart
+            android:id="@+id/scatterChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+    </LinearLayout>
+</ScrollView>

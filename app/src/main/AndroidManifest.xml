@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NUBE"
+        tools:targetApi="31">
+        <activity
+            android:name=".GraficosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalleVentaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CrearClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CrearArticuloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarArticuloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarEmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CrearEmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InventariosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VentasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GestionEmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FacturacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaMenuActivity"
+            android:exported="false" /> <!-- LoginActivity como la pantalla inicial -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- RegisterActivity para el registro de usuarios -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" /> <!-- MenuActivity para mostrar el menú -->
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" /> <!-- MainActivity (si se usa como una pantalla secundaria o futura) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
