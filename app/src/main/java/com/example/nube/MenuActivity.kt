@@ -29,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
         val btnGraficas: Button = findViewById(R.id.btnGraficas)
         val btnIA: Button = findViewById(R.id.btnIA)
         val btnAnalisis: Button = findViewById(R.id.btnAnalisis)
+        val btnPlan: Button = findViewById(R.id.btnPlanes)
 
         // Obtener el plan del usuario desde Firestore
         db.collection("users").document(userId).get()
@@ -64,5 +65,9 @@ class MenuActivity : AppCompatActivity() {
         }
         btnIA.setOnClickListener { /* Ir a IAActivity */ }
         btnAnalisis.setOnClickListener { /* Ir a AnalisisActivity */ }
+        btnPlan.setOnClickListener{
+            val intent = Intent(this, PlanActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
