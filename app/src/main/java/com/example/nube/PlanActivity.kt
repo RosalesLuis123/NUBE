@@ -1,6 +1,7 @@
 package com.example.nube
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -57,6 +58,8 @@ class PlanActivity : AppCompatActivity() {
                         .update("plan", newPlan)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Plan cambiado a $newPlan", Toast.LENGTH_SHORT).show()
+                            // Redirigir a LoginActivity después de cambiar el plan
+                            redirectToLogin()
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(this, "Error al cambiar el plan: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -68,5 +71,12 @@ class PlanActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error al buscar usuario: ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun redirectToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish() // Finalizar la actividad actual
     }
 }
