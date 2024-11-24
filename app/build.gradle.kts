@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.ui.text.android)
     implementation(libs.androidx.datastore.core.android)
     implementation(libs.androidx.storage)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
