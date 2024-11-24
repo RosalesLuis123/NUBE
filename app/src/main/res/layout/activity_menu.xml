@@ -17,7 +17,7 @@
             android:id="@+id/btnPersonas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personas" />
+            android:text="Clientes" />
 
         <Button
             android:id="@+id/btnEmpresas"

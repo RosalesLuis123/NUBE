@@ -54,7 +54,9 @@ class MenuActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al obtener el plan: ${e.message}", Toast.LENGTH_SHORT).show()
             }
 
-        btnPersonas.setOnClickListener { /* Ir a PersonasActivity */ }
+        btnPersonas.setOnClickListener {
+            val intent = Intent(this, GestionClientesActivity::class.java)
+            startActivity(intent) }
         btnEmpresas.setOnClickListener {
             val intent = Intent(this, EmpresaMenuActivity::class.java)
             startActivity(intent)

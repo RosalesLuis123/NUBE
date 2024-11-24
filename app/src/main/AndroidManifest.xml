@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NUBE"
         tools:targetApi="31">
         <activity
+            android:name=".GestionClientesActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlanActivity"
             android:exported="false" />
         <activity
