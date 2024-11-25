@@ -16,21 +16,21 @@
         android:id="@+id/btnFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar Fecha"
+        android:text="@string/Seleccionar_Fecha"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnAnalizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Realizar Análisis"
+        android:text="@string/Realizar_Análisis"
         android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resultados aparecerán aquí"
+        android:text="@string/default_result_text"
         android:padding="8dp"
         android:background="@android:color/darker_gray"
         android:textColor="@android:color/white" />
