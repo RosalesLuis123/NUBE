@@ -53,6 +53,12 @@
         <activity
             android:name=".FacturacionActivity"
             android:exported="false" />
+
+        <!-- AnalisisActivity nueva actividad implementada -->
+        <activity android:name=".AnalisisActivity"
+            android:exported="false"/>
+
+
         <activity
             android:name=".EmpresaMenuActivity"
             android:exported="false" /> <!-- LoginActivity como la pantalla inicial -->
@@ -74,6 +80,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+
     </application>
 
 </manifest>

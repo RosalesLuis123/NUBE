@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">NUBE</string>
+    <string name="Seleccionar_Fecha">Seleccionar Fecha</string>
+    <string name="Realizar_Análisis">Realizar Análisis</string>
+    <string name="default_result_text">Resultados aparecerán aquí</string>
 </resources>
