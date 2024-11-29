@@ -34,16 +34,19 @@
         android:text="Resultados aparecerán aquí" />
 
     <TextView
-        android:id="@+id/tvMasVentas"
+        android:id="@+id/tvdiaMasVentasia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Día con más ventas aparecerá aquí" />
 
     <TextView
-        android:id="@+id/tvMenosVentas"
+        android:id="@+id/tvdiaMenosVentasia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Día con menos ventas aparecerá aquí" />
+
+    <!-- TextView para mostrar el día con más ventas -->
+
 
     <TextView
         android:id="@+id/tvProductosMasVendidos"
