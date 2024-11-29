@@ -6,8 +6,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.text.SimpleDateFormat
 import android.view.View
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AnalisisActivity : AppCompatActivity() {
@@ -18,6 +18,7 @@ class AnalisisActivity : AppCompatActivity() {
     private lateinit var btnFecha: Button
     private lateinit var btnAnalizar: Button
     private lateinit var tvResultado: TextView
+    private lateinit var listView: ListView
 
     private var fechaSeleccionada: Calendar = Calendar.getInstance()
     private var periodoSeleccionado: String = "Día"
@@ -35,23 +36,22 @@ class AnalisisActivity : AppCompatActivity() {
         btnFecha = findViewById(R.id.btnFecha)
         btnAnalizar = findViewById(R.id.btnAnalizar)
         tvResultado = findViewById(R.id.tvResultado)
+        listView = findViewById(R.id.listViewResultados)
 
-        // Configurar el Spinner con opciones de análisis
+        // Configurar Spinner
         val opciones = listOf("Día", "Mes", "Año")
         spnPeriodo.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opciones)
-
         spnPeriodo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 periodoSeleccionado = opciones[position]
             }
-
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        // Selección de fecha
+        // Configurar selección de fecha
         btnFecha.setOnClickListener { mostrarDatePicker() }
 
-        // Botón para realizar el análisis
+        // Configurar análisis
         btnAnalizar.setOnClickListener { realizarAnalisis() }
     }
 
@@ -81,24 +81,22 @@ class AnalisisActivity : AppCompatActivity() {
         val fechaInicio = Calendar.getInstance().apply {
             time = fechaSeleccionada.time
             when (periodoSeleccionado) {
-                "Día" -> {
-                    // Mantener solo la fecha seleccionada
-                }
-                "Mes" -> set(Calendar.DAY_OF_MONTH, 1) // Primer día del mes
-                "Año" -> set(Calendar.DAY_OF_YEAR, 1) // Primer día del año
+                "Día" -> {}
+                "Mes" -> set(Calendar.DAY_OF_MONTH, 1)
+                "Año" -> set(Calendar.DAY_OF_YEAR, 1)
             }
         }
 
         val fechaFin = Calendar.getInstance().apply {
             time = fechaSeleccionada.time
             when (periodoSeleccionado) {
-                "Día" -> add(Calendar.DAY_OF_MONTH, 1) // Día siguiente
+                "Día" -> add(Calendar.DAY_OF_MONTH, 1)
                 "Mes" -> {
-                    set(Calendar.DAY_OF_MONTH, 1) // Primer día del mes siguiente
+                    set(Calendar.DAY_OF_MONTH, 1)
                     add(Calendar.MONTH, 1)
                 }
                 "Año" -> {
-                    set(Calendar.DAY_OF_YEAR, 1) // Primer día del año siguiente
+                    set(Calendar.DAY_OF_YEAR, 1)
                     add(Calendar.YEAR, 1)
                 }
             }
@@ -115,36 +113,28 @@ class AnalisisActivity : AppCompatActivity() {
             .addOnSuccessListener { snapshot ->
                 if (snapshot.isEmpty) {
                     tvResultado.text = "No se encontraron ventas para este rango."
+                    listView.adapter = null
                     return@addOnSuccessListener
                 }
 
-                // Agrupar ventas por fecha
-                val ventasPorFecha = mutableMapOf<String, Double>()
+                val resultados = mutableListOf<String>()
                 for (document in snapshot.documents) {
-                    val fecha = document.getString("fecha") ?: continue
+                    val fecha = document.getString("fecha") ?: "Sin fecha"
                     val total = document.getDouble("total") ?: 0.0
-                    ventasPorFecha[fecha] = ventasPorFecha.getOrDefault(fecha, 0.0) + total
+                    val articulos = document.get("articulos") as? List<Map<String, Any>> ?: emptyList()
+                    val cliente = document.getString("cliente") ?: "Cliente desconocido"
+
+                    resultados.add("Fecha: $fecha | Total: $total | Cliente: $cliente")
+                    for (articulo in articulos) {
+                        val nombre = articulo["nombre"] ?: "Artículo desconocido"
+                        val cantidad = articulo["cantidad"] ?: 0
+                        resultados.add(" - $nombre (x$cantidad)")
+                    }
                 }
 
-                // Encontrar la fecha con más y menos ventas
-                val fechaMasVentas = ventasPorFecha.maxByOrNull { it.value }
-                val fechaMenosVentas = ventasPorFecha.minByOrNull { it.value }
-
-                val totalVentas = ventasPorFecha.values.sum()
-                val cantidadVentas = ventasPorFecha.size
-
-                // Mostrar resultados
-                tvResultado.text = """
-                    Análisis ($periodoSeleccionado):
-                    Ventas realizadas: $cantidadVentas
-                    Total recaudado: $totalVentas
-                    
-                    Fecha con más ventas:
-                    ${fechaMasVentas?.key} (${fechaMasVentas?.value ?: 0.0})
-                    
-                    Fecha con menos ventas:
-                    ${fechaMenosVentas?.key} (${fechaMenosVentas?.value ?: 0.0})
-                """.trimIndent()
+                tvResultado.text = "Análisis completado (${resultados.size} ventas encontradas)"
+                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, resultados)
+                listView.adapter = adapter
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error al realizar análisis: ${e.message}", Toast.LENGTH_SHORT).show()
