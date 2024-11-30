@@ -55,7 +55,7 @@ class MenuActivity : AppCompatActivity() {
             }
 
         btnPersonas.setOnClickListener {
-            val intent = Intent(this, GestionClientesActivity::class.java)
+            val intent = Intent(this, GestionPersonasActivity::class.java)
             startActivity(intent) }
         btnEmpresas.setOnClickListener {
             val intent = Intent(this, EmpresaMenuActivity::class.java)
@@ -65,6 +65,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, GraficosActivity::class.java)
             startActivity(intent)
         }
+
         btnIA.setOnClickListener {
             val intent = Intent(this, IAChatActivity::class.java)
             startActivity(intent) }

@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            startActivity(Intent(this, MenuActivity::class.java))
+                            startActivity(Intent(this, HomeActivity::class.java))
                             finish()
                         } else {
                             Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

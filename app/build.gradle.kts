@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id ("kotlin-parcelize")
+
 }
 
 android {
@@ -54,6 +56,7 @@ dependencies {
     implementation(libs.androidx.storage)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

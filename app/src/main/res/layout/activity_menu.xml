@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_button"
-            android:text="Clientes"
+            android:text="Personas"
             android:textColor="#FFFFFF" />
 
         <Button
