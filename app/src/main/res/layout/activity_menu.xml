@@ -1,53 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:paddingTop="130dp">
+
+    <!-- Primera fila -->
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
 
         <Button
             android:id="@+id/btnPersonas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clientes" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Clientes"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnEmpresas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Empresas" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Empresas"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Segunda fila -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
 
         <Button
             android:id="@+id/btnGraficas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gráficas" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Gráficas"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnIA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="IA" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="IA"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Tercera fila -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnAnalisis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Análisis" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Análisis"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnPlanes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Planes" />
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Planes"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,64 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Período y Fecha -->
+    <Spinner
+        android:id="@+id/spnPeriodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Fecha" />
+
+    <Button
+        android:id="@+id/btnAnalizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Analizar Ventas" />
+
+    <!-- Resultados -->
+    <TextView
+        android:id="@+id/tvResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Resultados aparecerán aquí" />
+
+    <TextView
+        android:id="@+id/tvdiaMasVentasia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Día con más ventas aparecerá aquí" />
+
+    <TextView
+        android:id="@+id/tvdiaMenosVentasia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Día con menos ventas aparecerá aquí" />
+
+    <!-- TextView para mostrar el día con más ventas -->
+
+
+    <TextView
+        android:id="@+id/tvProductosMasVendidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos más vendidos aparecerán aquí"
+        android:layout_marginTop="16dp" />
+
+    <!-- ListView -->
+    <ListView
+        android:id="@+id/listViewResultados"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
