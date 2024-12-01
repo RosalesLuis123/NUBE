@@ -22,10 +22,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="329dp"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center">
+            android:padding="16dp">
 
             <!-- Botón Facturación -->
             <Button
@@ -56,6 +56,19 @@
                 android:textSize="16sp" />
 
             <!-- Botón Inventarios -->
+
+            <Button
+                android:id="@+id/btnGestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:drawableStart="@drawable/ic_gestion"
+                android:drawablePadding="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Gestión de Empresa"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
             <Button
                 android:id="@+id/btnInventarios"
                 android:layout_width="match_parent"
@@ -68,18 +81,5 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btnGestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:drawableStart="@drawable/ic_gestion"
-        android:drawablePadding="8dp"
-        android:text="Gestión de Empresa"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="494dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

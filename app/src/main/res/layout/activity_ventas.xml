@@ -11,20 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
         android:weightSum="1">
 
         <!-- Título de la pantalla -->
         <TextView
-            android:id="@+id/tvTituloVentas"
+            android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#d1bcff"
             android:text="Historial de Ventas"
-            android:textColor="#333333"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:padding="16dp" />
 
         <!-- RecyclerView para mostrar las ventas -->
         <ListView

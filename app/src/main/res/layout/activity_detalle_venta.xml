@@ -12,15 +12,28 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:background="#FFFFFF">
+
+        <!-- Encabezado -->
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1bcff"
+            android:text="Detalles de Venta"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:padding="16dp" />
 
         <!-- Información de la venta: Fecha y Total -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:background="@drawable/rounded_card"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="16dp"
             android:backgroundTint="#F0F0F0"
             android:padding="16dp">
 
@@ -31,16 +44,15 @@
                 android:text="Fecha de Venta: 01/12/2024"
                 android:textColor="#212121"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTotalVenta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total de la Venta: $120.00"
-                android:textColor="#212121"
                 android:textSize="16sp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
 
@@ -49,27 +61,27 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_card"
+            android:layout_margin="16dp"
             android:backgroundTint="#F0F0F0"
             android:padding="16dp">
 
             <TextView
                 android:id="@+id/tvNombreEmpleado"
                 android:layout_width="wrap_content"
+                android:textColor="#212121"
                 android:layout_height="wrap_content"
                 android:text="Nombre del empleado: Juan Perez"
-                android:textColor="#212121"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCIEmpleado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CI del empleado: 12345678"
-                android:textColor="#212121"
                 android:textSize="16sp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
         </LinearLayout>
 
         <!-- Lista de artículos vendidos -->
@@ -78,20 +90,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Artículos vendidos"
-            android:textSize="18sp"
             android:textColor="#212121"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
         <ListView
             android:id="@+id/lvArticulosVenta"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_card"
             android:divider="@color/black"
             android:dividerHeight="0.5dp"
-            android:background="#F9F9F9"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
     </LinearLayout>
 

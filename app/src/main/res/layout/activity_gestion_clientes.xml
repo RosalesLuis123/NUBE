@@ -11,8 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
-
+        >
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1bcff"
+            android:text="Clientes"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:padding="16dp" />
         <!-- Botón para añadir cliente -->
 
         <!-- RecyclerView para mostrar clientes -->
