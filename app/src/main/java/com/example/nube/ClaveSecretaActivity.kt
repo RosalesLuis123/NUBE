@@ -1,14 +1,21 @@
 package com.example.nube
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
+import android.text.InputType
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
+import okhttp3.*
+import org.json.JSONObject
+import java.util.UUID
 
 class ClaveSecretaActivity : AppCompatActivity() {
 
@@ -57,44 +64,82 @@ class ClaveSecretaActivity : AppCompatActivity() {
             val userId = auth.currentUser?.uid
 
             if (userId != null) {
-                db.collection("users").document(userId).get()
-                    .addOnSuccessListener { document ->
-                        val ultimaSolicitud = document.getLong("lastSecretKeyRequest")
-                        val ahora = System.currentTimeMillis()
-                        val unDiaMillis = 24 * 60 * 60 * 1000 // Milisegundos en un día
-
-                        // Verificar si ha pasado un día desde la última solicitud
-                        if (ultimaSolicitud == null || (ahora - ultimaSolicitud) >= unDiaMillis) {
-                            val nuevaClave = UUID.randomUUID().toString() // Generar nueva clave
-
-                            // Actualizar clave secreta y registrar la solicitud
-                            db.collection("users").document(userId)
-                                .update(
-                                    mapOf(
-                                        "secretKey" to nuevaClave,
-                                        "lastSecretKeyRequest" to ahora
-                                    )
-                                )
-                                .addOnSuccessListener {
-                                    sendSecretKeyByEmail(document.getString("email") ?: "", nuevaClave)
-                                    Toast.makeText(this, "Clave nueva enviada al correo", Toast.LENGTH_SHORT).show()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(this, "Error al generar clave nueva", Toast.LENGTH_SHORT).show()
-                                }
-                        } else {
-                            Toast.makeText(this, "Solo puedes solicitar una nueva clave por día", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Error al solicitar clave nueva", Toast.LENGTH_SHORT).show()
-                    }
+                showPasswordDialog(userId)
+            } else {
+                Toast.makeText(this, "No estás autenticado", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun sendSecretKeyByEmail(email: String, secretKey: String) {
-        // Implementa el envío de correo (Firebase Cloud Functions o JavaMail)
-        Toast.makeText(this, "Correo enviado a $email", Toast.LENGTH_SHORT).show()
+    private fun showPasswordDialog(userId: String) {
+        val input = EditText(this).apply {
+            hint = "Ingresa tu contraseña"
+            inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Verificar contraseña")
+            .setMessage("Por favor ingresa tu contraseña para continuar")
+            .setView(input)
+            .setPositiveButton("Aceptar") { _, _ ->
+                val password = input.text.toString()
+                if (password.isNotEmpty()) {
+                    verifyPasswordAndGenerateKey(userId, password)
+                } else {
+                    Toast.makeText(this, "Por favor ingresa una contraseña", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+            .create()
+
+        dialog.show()
+    }
+
+    private fun verifyPasswordAndGenerateKey(userId: String, password: String) {
+        // Aquí debes verificar que la contraseña ingresada coincida con la almacenada en Firebase
+        val user = auth.currentUser
+        if (user != null) {
+            user.reauthenticate(EmailAuthProvider.getCredential(user.email!!, password))
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Contraseña verificada, generar nueva clave secreta
+                        val nuevaClave = UUID.randomUUID().toString() // Generar nueva clave
+                        updateSecretKey(userId, nuevaClave)
+                    } else {
+                        Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
+
+    private fun updateSecretKey(userId: String, nuevaClave: String) {
+        // Actualizar clave secreta en Firestore
+        db.collection("users").document(userId)
+            .update("secretKey", nuevaClave)
+            .addOnSuccessListener {
+                showSecretKeyDialog(nuevaClave)
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al generar clave nueva", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun showSecretKeyDialog(secretKey: String) {
+        // Crear el diálogo que muestra la clave secreta y permite copiarla
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Tu nueva clave secreta")
+            .setMessage(secretKey)
+            .setPositiveButton("Copiar") { _, _ ->
+                // Copiar la clave al portapapeles
+                val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clip = android.content.ClipData.newPlainText("Clave secreta", secretKey)
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(this, "Clave copiada al portapapeles", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Cerrar", null)
+            .create()
+
+        dialog.show()
     }
 }
+
