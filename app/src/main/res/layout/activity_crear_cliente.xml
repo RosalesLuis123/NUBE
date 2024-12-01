@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CrearClienteActivity">
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,18 +17,23 @@
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rounded_input"
             android:hint="Nombre del cliente"
-            android:layout_marginBottom="8dp" />
+            android:padding="16dp" />
 
         <EditText
             android:id="@+id/etCI"
+            android:background="@drawable/rounded_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CI del cliente"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="12dp"
+            android:padding="16dp" />
 
         <Button
             android:id="@+id/btnGuardar"
+            android:background="@drawable/rounded_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar Cliente" />

@@ -5,9 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".EditarArticuloActivity">
+
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
@@ -23,14 +24,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre del artículo"
-                android:layout_marginBottom="8dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="12dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <EditText
                 android:id="@+id/etCod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Código del artículo"
-                android:layout_marginBottom="8dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="12dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <EditText
                 android:id="@+id/etCantidad"
@@ -38,7 +45,10 @@
                 android:layout_height="wrap_content"
                 android:hint="Cantidad"
                 android:inputType="number"
-                android:layout_marginBottom="8dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="12dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <EditText
                 android:id="@+id/etPrecioUnitario"
@@ -46,27 +56,40 @@
                 android:layout_height="wrap_content"
                 android:hint="Precio Unitario"
                 android:inputType="numberDecimal"
-                android:layout_marginBottom="8dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="12dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <EditText
                 android:id="@+id/etTipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tipo de artículo"
-                android:layout_marginBottom="8dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="12dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <EditText
                 android:id="@+id/etDetalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Detalle"
-                android:layout_marginBottom="16dp" />
+                android:background="@drawable/rounded_input"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                android:textColor="#212121" />
 
             <Button
                 android:id="@+id/btnActualizar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Guardar Artículo" />
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_button"
+                android:text="Actualizar Artículo"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

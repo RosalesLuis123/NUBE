@@ -5,6 +5,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_card"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -24,12 +25,14 @@
 
         <Button
             android:id="@+id/btnEdit"
+            android:background="@drawable/rounded_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btnDelete"
+            android:background="@drawable/rounded_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Eliminar" />

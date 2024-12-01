@@ -3,25 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_card"
+    android:gravity="center_vertical">
 
+    <!-- Nombre de la empresa -->
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Nombre de la empresa"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:maxLines="1"
+        android:ellipsize="end" />
 
+    <!-- Botón Editar -->
+
+    <!-- Botón Eliminar -->
     <Button
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editar" />
+        android:padding="8dp"
+        android:text="Editar"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar" />
+        android:text="Eliminar"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        android:padding="8dp" />
 </LinearLayout>

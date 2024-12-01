@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NUBE"
         tools:targetApi="31">
         <activity
+            android:name=".ClaveSecretaActivity"
+            android:exported="false" />
+        <activity
             android:name=".IAChatActivity"
             android:exported="false" />
         <activity

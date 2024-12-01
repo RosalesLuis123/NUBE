@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".FacturacionActivity">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Spinner Empresa -->
         <Spinner
             android:id="@+id/spEmpresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Seleccionar Empresa"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_input"
+            android:padding="8dp" />
 
+        <!-- Spinner Cliente -->
         <Spinner
             android:id="@+id/spCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Seleccionar Cliente"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_input"
+            android:padding="8dp" />
 
+        <!-- Botón Añadir Cliente -->
         <Button
             android:id="@+id/btnAddCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Cliente"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp" />
 
+        <!-- Botón Añadir Producto -->
         <Button
             android:id="@+id/btnAddArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Producto"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp" />
 
+        <!-- Lista de Artículos -->
         <ListView
             android:id="@+id/lvArticulos"
             android:layout_width="match_parent"
@@ -49,11 +60,13 @@
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp" />
 
+        <!-- Botón Guardar Factura -->
         <Button
             android:id="@+id/btnGuardarFactura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Factura" />
+            android:text="Guardar Factura"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,27 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GestionEmpresaActivity">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:weightSum="1">
 
+        <!-- Botón para añadir empresa -->
         <Button
             android:id="@+id/btnAddEmpresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Empresa"
-            android:layout_marginBottom="16dp" />
+            android:background="@drawable/rounded_button"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"/>
 
+        <!-- RecyclerView para mostrar empresas -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerEmpresas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"
+            android:layout_marginBottom="16dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

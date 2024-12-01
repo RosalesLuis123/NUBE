@@ -3,31 +3,96 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetalleVentaActivity">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="#FFFFFF">
 
+        <!-- Información de la venta: Fecha y Total -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#F0F0F0"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvFechaVenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Venta: 01/12/2024"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvTotalVenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total de la Venta: $120.00"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <!-- Información del empleado que realizó la venta -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#F0F0F0"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvNombreEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del empleado: Juan Perez"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvCIEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CI del empleado: 12345678"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Lista de artículos vendidos -->
         <TextView
-            android:id="@+id/tvFechaVenta"
+            android:id="@+id/tvArticulos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha"/>
-
-        <TextView
-            android:id="@+id/tvTotalVenta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total"/>
+            android:text="Artículos vendidos"
+            android:textSize="18sp"
+            android:textColor="#212121"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
         <ListView
             android:id="@+id/lvArticulosVenta"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@color/black"
+            android:dividerHeight="0.5dp"
+            android:background="#F9F9F9"
+            android:padding="8dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

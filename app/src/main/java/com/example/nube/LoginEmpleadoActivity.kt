@@ -51,8 +51,17 @@ class LoginEmpleadoActivity : AppCompatActivity() {
                     if (querySnapshot.isEmpty) {
                         Toast.makeText(this, "Empleado no encontrado o contraseña incorrecta", Toast.LENGTH_SHORT).show()
                     } else {
-                        // Si el empleado es autenticado exitosamente, redirigir a HomeActivity
-                        val intent = Intent(this, FacturacionActivity::class.java)
+                        // Recuperar el CI y nombre del empleado
+                        val empleado = querySnapshot.documents[0]
+                        val empleadoCi = empleado.getString("ci") ?: ""
+                        val empleadoNombre = empleado.getString("nombre") ?: ""
+
+                        // Guardar los datos del empleado para usarlos más tarde
+                        // (puedes guardarlos en SharedPreferences o pasarlos por la actividad)
+                        val intent = Intent(this, FacturacionActivity::class.java).apply {
+                            putExtra("empleadoCi", empleadoCi)
+                            putExtra("empleadoNombre", empleadoNombre)
+                        }
                         startActivity(intent)
                         finish()  // Cerrar la actividad de login
                     }
@@ -64,4 +73,5 @@ class LoginEmpleadoActivity : AppCompatActivity() {
             Toast.makeText(this, "Usuario no logueado", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

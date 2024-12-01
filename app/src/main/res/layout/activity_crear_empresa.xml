@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CrearEmpresaActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,59 +18,92 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <!-- EditText para el nombre de la empresa -->
             <EditText
                 android:id="@+id/etNombre"
+                android:background="@drawable/rounded_input"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:hint="Nombre de la empresa"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de nombre de la empresa" />
 
+            <!-- EditText para la dirección -->
             <EditText
                 android:id="@+id/etDireccion"
+                android:background="@drawable/rounded_input"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:hint="Dirección"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de dirección" />
 
+            <!-- EditText para el NIT -->
             <EditText
                 android:id="@+id/etNIT"
+                android:background="@drawable/rounded_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:hint="NIT"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de NIT" />
 
+            <!-- EditText para los datos de la empresa -->
             <EditText
                 android:id="@+id/etDatos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_input"
+
                 android:layout_marginBottom="8dp"
                 android:hint="Datos de la empresa"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de datos de la empresa" />
 
+            <!-- EditText para teléfono -->
             <EditText
                 android:id="@+id/etTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:hint="Teléfono"
-                android:minHeight="48dp" />
+                android:background="@drawable/rounded_input"
 
+                android:minHeight="48dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de teléfono" />
+
+            <!-- EditText para rubro -->
             <EditText
                 android:id="@+id/etRubro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Rubro"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:background="@drawable/rounded_input"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Campo de rubro" />
 
+            <!-- Botón para guardar la empresa -->
             <Button
                 android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Guardar Empresa" />
+                android:text="Guardar Empresa"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_button"
+                android:padding="12dp"/>
         </LinearLayout>
     </ScrollView>
 

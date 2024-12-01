@@ -1,28 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".PlanActivity">
 
-    <Button
-        android:id="@+id/btn_free"
+    <!-- Tarjeta Plan FREE -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_free"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plan FREE" />
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        android:background="#FFFFFF"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btn_medium"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_free"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plan FREE"
+                android:background="@drawable/rounded_button"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facturación, Inventarios, Empresa +, Empleados, Clientes"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta Plan MEDIUM -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plan MEDIUM"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cardView_free"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btn_pro"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plan MEDIUM"
+                android:background="@drawable/rounded_button"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facturación, Inventarios, Empresa ++, Empleados, Clientes, Gráficas"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta Plan PRO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_pro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plan PRO"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cardView_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_pro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plan PRO"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:background="@drawable/rounded_button"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facturación, Inventarios, Empresa +++, Empleados, Clientes, Gráficas, IA, Análisis"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

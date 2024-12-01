@@ -18,6 +18,8 @@ class DetalleVentaActivity : AppCompatActivity() {
         val listView: ListView = findViewById(R.id.lvArticulosVenta)
         val tvFecha: TextView = findViewById(R.id.tvFechaVenta)
         val tvTotal: TextView = findViewById(R.id.tvTotalVenta)
+        val tvNombreEmpleado: TextView = findViewById(R.id.tvNombreEmpleado)
+        val tvCIEmpleado: TextView = findViewById(R.id.tvCIEmpleado)
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -30,10 +32,16 @@ class DetalleVentaActivity : AppCompatActivity() {
                 val articulos = document.get("articulos") as? List<Map<String, Any>> ?: emptyList()
                 val fecha = document.getString("fecha") ?: ""
                 val total = document.getDouble("total") ?: 0.0
+                val empleadoNombre = document.getString("empleadoNombre") ?: "Empleado no encontrado"
+                val empleadoCi = document.getString("empleadoCi") ?: "CI no encontrado"
 
+                // Actualiza la UI con los datos de la venta
                 tvFecha.text = "Fecha: $fecha"
                 tvTotal.text = "Total: $total"
+                tvNombreEmpleado.text = "Nombre del empleado: $empleadoNombre"
+                tvCIEmpleado.text = "CI del empleado: $empleadoCi"
 
+                // Prepara la lista de artículos
                 val articulosTexto = articulos.map {
                     "${it["nombre"]} (x${it["cantidad"]}) - $${it["precioUnitario"]}"
                 }

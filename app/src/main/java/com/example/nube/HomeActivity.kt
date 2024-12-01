@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
         val btnDueno: Button = findViewById(R.id.btnDueno)
         btnDueno.setOnClickListener {
             // Redirige a la actividad de login para dueño
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, ClaveSecretaActivity::class.java)
             startActivity(intent)
         }
     }

@@ -69,7 +69,8 @@ class MenuActivity : AppCompatActivity() {
         btnIA.setOnClickListener {
             val intent = Intent(this, IAChatActivity::class.java)
             startActivity(intent) }
-        btnAnalisis.setOnClickListener { /* Ir a AnalisisActivity */ }
+        btnAnalisis.setOnClickListener { val intent = Intent(this, AnalisisActivity::class.java)
+            startActivity(intent)  }
         btnPlan.setOnClickListener{
             val intent = Intent(this, PlanActivity::class.java)
             startActivity(intent)

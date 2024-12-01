@@ -50,7 +50,7 @@ class FacturacionActivity : AppCompatActivity() {
             seleccionarArticulo(userId, lvArticulos)
         }
 
-        // Guardar factura
+        // Guardar venta
         btnGuardarFactura.setOnClickListener {
             val empresaId = spEmpresa.selectedItem as? String
             val clienteId = spCliente.selectedItem as? String
@@ -65,7 +65,7 @@ class FacturacionActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            guardarFactura(userId, empresaId, clienteId)
+            guardarVenta(userId, empresaId, clienteId)
         }
     }
 
@@ -143,53 +143,55 @@ class FacturacionActivity : AppCompatActivity() {
         listView.adapter = adapter
     }
 
-    private fun guardarFactura(userId: String, empresaId: String, clienteId: String) {
+    private fun guardarVenta(userId: String, empresaId: String, clienteId: String) {
         val fecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val total = articulosSeleccionados.sumOf { it.cantidad * it.precioUnitario }
 
-        val factura = hashMapOf(
-            "empresaId" to empresaId,
-            "clienteId" to clienteId,
-            "articulos" to articulosSeleccionados.map {
-                hashMapOf(
-                    "id" to it.id,
-                    "nombre" to it.nombre,
-                    "cantidad" to it.cantidad,
-                    "precioUnitario" to it.precioUnitario
-                )
-            },
-            "fecha" to fecha,
-            "total" to total
-        )
+        // Obtener el CI y nombre del empleado logueado
+        val empleadoRef = db.collection("users").document(userId).collection("empleados")
+        val ciEmpleado = "12345678" // Aquí deberías obtener el CI que corresponde al empleado logueado
 
-        db.collection("users").document(userId).collection("facturas").add(factura)
-            .addOnSuccessListener {
-                registrarVenta(userId, articulosSeleccionados, total, fecha)
-                Toast.makeText(this, "Factura creada exitosamente", Toast.LENGTH_SHORT).show()
-                finish()
+        empleadoRef.whereEqualTo("ci", ciEmpleado) // Buscar por el CI del empleado
+            .get()
+            .addOnSuccessListener { snapshot ->
+                if (!snapshot.isEmpty) {
+                    val empleado = snapshot.documents.first()
+                    val ciEmpleado = empleado.getString("ci") ?: ""
+                    val nombreEmpleado = empleado.getString("nombre") ?: ""
+
+                    val venta = hashMapOf(
+                        "empresaId" to empresaId,
+                        "clienteId" to clienteId,
+                        "empleadoCi" to ciEmpleado,
+                        "empleadoNombre" to nombreEmpleado,
+                        "articulos" to articulosSeleccionados.map {
+                            hashMapOf(
+                                "id" to it.id,
+                                "nombre" to it.nombre,
+                                "cantidad" to it.cantidad,
+                                "precioUnitario" to it.precioUnitario
+                            )
+                        },
+                        "fecha" to fecha,
+                        "total" to total
+                    )
+
+                    // Guardar en la colección de ventas
+                    db.collection("users").document(userId).collection("ventas").add(venta)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Venta creada exitosamente", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(this, "Error al guardar la venta: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this, "Empleado no encontrado", Toast.LENGTH_SHORT).show()
+                }
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Error al guardar la factura: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error al obtener datos del empleado: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun registrarVenta(userId: String, articulos: List<ArticuloSeleccionado>, total: Double, fecha: String) {
-        val venta = hashMapOf(
-            "articulos" to articulos.map {
-                hashMapOf(
-                    "id" to it.id,
-                    "nombre" to it.nombre,
-                    "cantidad" to it.cantidad,
-                    "precioUnitario" to it.precioUnitario
-                )
-            },
-            "total" to total,
-            "fecha" to fecha
-        )
-
-        db.collection("users").document(userId).collection("ventas").add(venta)
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error al registrar la venta: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
 }

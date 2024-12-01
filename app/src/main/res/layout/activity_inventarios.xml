@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InventariosActivity">
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -13,17 +15,25 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Botón Añadir Artículo -->
         <Button
             android:id="@+id/btnAddArticulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Artículo"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp" />
 
+        <!-- RecyclerView para Inventarios -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerInventarios"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

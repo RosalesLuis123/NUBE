@@ -2,11 +2,11 @@ package com.example.nube
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import android.view.View
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,6 +15,7 @@ class AnalisisActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     private lateinit var spnPeriodo: Spinner
+    private lateinit var spnFiltro: Spinner
     private lateinit var btnFecha: Button
     private lateinit var btnAnalizar: Button
     private lateinit var tvResultado: TextView
@@ -22,6 +23,7 @@ class AnalisisActivity : AppCompatActivity() {
 
     private var fechaSeleccionada: Calendar = Calendar.getInstance()
     private var periodoSeleccionado: String = "Día"
+    private var filtroSeleccionado: String = "General"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,17 +35,28 @@ class AnalisisActivity : AppCompatActivity() {
 
         // Referenciar vistas
         spnPeriodo = findViewById(R.id.spnPeriodo)
+        spnFiltro = findViewById(R.id.spnFiltro)
         btnFecha = findViewById(R.id.btnFecha)
         btnAnalizar = findViewById(R.id.btnAnalizar)
         tvResultado = findViewById(R.id.tvResultado)
         listView = findViewById(R.id.listViewResultados)
 
-        // Configurar Spinner
-        val opciones = listOf("Día", "Mes", "Año")
-        spnPeriodo.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opciones)
+        // Configurar Spinner para periodo
+        val opcionesPeriodo = listOf("Día", "Mes", "Año")
+        spnPeriodo.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opcionesPeriodo)
         spnPeriodo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                periodoSeleccionado = opciones[position]
+                periodoSeleccionado = opcionesPeriodo[position]
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
+        // Configurar Spinner para filtro
+        val opcionesFiltro = listOf("General", "Empleado", "Producto")
+        spnFiltro.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opcionesFiltro)
+        spnFiltro.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                filtroSeleccionado = opcionesFiltro[position]
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
@@ -105,7 +118,7 @@ class AnalisisActivity : AppCompatActivity() {
         val fechaInicioStr = dateFormat.format(fechaInicio.time)
         val fechaFinStr = dateFormat.format(fechaFin.time)
 
-        // Consultar en Firestore
+        // Consultar en Firestore según filtro (General, Empleado, Producto)
         db.collection("users").document(userId).collection("ventas")
             .whereGreaterThanOrEqualTo("fecha", fechaInicioStr)
             .whereLessThan("fecha", fechaFinStr)
@@ -122,22 +135,47 @@ class AnalisisActivity : AppCompatActivity() {
                     val fecha = document.getString("fecha") ?: "Sin fecha"
                     val total = document.getDouble("total") ?: 0.0
                     val articulos = document.get("articulos") as? List<Map<String, Any>> ?: emptyList()
-                    val cliente = document.getString("cliente") ?: "Cliente desconocido"
+                    val clienteId = document.getString("clienteId") ?: "Cliente desconocido"
+                    val empresaId = document.getString("empresaId") ?: "Empresa desconocida"
+                    val empleadoCi = document.getString("empleadoCi") ?: "Empleado desconocido"
+                    val empleadoNombre = document.getString("empleadoNombre") ?: "Empleado desconocido"
 
-                    resultados.add("Fecha: $fecha | Total: $total | Cliente: $cliente")
-                    for (articulo in articulos) {
-                        val nombre = articulo["nombre"] ?: "Artículo desconocido"
-                        val cantidad = articulo["cantidad"] ?: 0
-                        resultados.add(" - $nombre (x$cantidad)")
+                    // Realizar análisis dependiendo del filtro seleccionado
+                    when (filtroSeleccionado) {
+                        "General" -> {
+                            resultados.add("Factura Fecha: $fecha | Total: $total | Cliente: $clienteId | Empresa: $empresaId | Empleado: $empleadoNombre")
+                            // Agregar los artículos de la factura
+                            for (articulo in articulos) {
+                                val nombre = articulo["nombre"] ?: "Artículo desconocido"
+                                val cantidad = articulo["cantidad"] ?: 0
+                                val precio = articulo["precio"] ?: 0.0
+                                resultados.add(" - Artículo: $nombre (x$cantidad) | Precio: $precio")
+                            }
+                        }
+                        "Empleado" -> {
+                            if (empleadoCi != "Empleado desconocido") {
+                                resultados.add("Empleado: $empleadoNombre | Factura Fecha: $fecha | Total: $total")
+                            }
+                        }
+                        "Producto" -> {
+                            for (articulo in articulos) {
+                                val productoNombre = articulo["nombre"] as? String ?: "Producto desconocido"
+                                val cantidad = articulo["cantidad"] ?: 0
+                                val precio = articulo["precio"] ?: 0.0
+                                resultados.add("Factura Fecha: $fecha | Total: $total | Producto: $productoNombre (x$cantidad) | Precio: $precio")
+                            }
+                        }
                     }
                 }
 
-                tvResultado.text = "Análisis completado (${resultados.size} ventas encontradas)"
-                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, resultados)
-                listView.adapter = adapter
+                // Mostrar los resultados
+                tvResultado.text = "Análisis Completo"
+                val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, resultados)
+                listView.adapter = arrayAdapter
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Error al realizar análisis: ${e.message}", Toast.LENGTH_SHORT).show()
+                tvResultado.text = "Error al obtener los datos: ${e.message}"
             }
     }
+
 }

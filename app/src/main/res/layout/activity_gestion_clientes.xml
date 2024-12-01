@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GestionClientesActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Botón para añadir cliente -->
+
+        <!-- RecyclerView para mostrar clientes -->
         <Button
             android:id="@+id/btnAddCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Añadir Cliente" />
+            android:layout_marginBottom="16dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_button"
+            android:text="Añadir Cliente"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewClientes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"/>
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,64 +1,64 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
-    <!-- Período y Fecha -->
+    <!-- Spinner para elegir el periodo (Día, Mes, Año) -->
     <Spinner
         android:id="@+id/spnPeriodo"
+        android:background="@drawable/rounded_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp" />
+        android:layout_alignParentTop="true"
+        android:entries="@array/periodo_opciones" />
 
+    <!-- Spinner para seleccionar el filtro (General, Empleado, Producto) -->
+    <Spinner
+        android:id="@+id/spnFiltro"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_input"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spnPeriodo"
+        android:layout_marginTop="8dp"
+        android:entries="@array/filtro_opciones" />
+
+    <!-- Botón para seleccionar la fecha -->
     <Button
         android:id="@+id/btnFecha"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_button"
         android:layout_height="wrap_content"
-        android:text="Seleccionar Fecha" />
+        android:layout_below="@id/spnFiltro"
+        android:text="Seleccionar Fecha"
+        android:layout_marginTop="8dp" />
 
+    <!-- Botón para realizar el análisis -->
     <Button
         android:id="@+id/btnAnalizar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_button"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Analizar Ventas" />
+        android:layout_below="@id/btnFecha"
+        android:text="Realizar Análisis"
+        android:layout_marginTop="8dp" />
 
-    <!-- Resultados -->
+    <!-- Resultado del análisis -->
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:text="Resultados aparecerán aquí" />
+        android:layout_below="@id/btnAnalizar"
+        android:layout_marginTop="16dp"
+        android:text="Resultado"
+        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tvdiaMasVentasia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Día con más ventas aparecerá aquí" />
-
-    <TextView
-        android:id="@+id/tvdiaMenosVentasia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Día con menos ventas aparecerá aquí" />
-
-    <!-- TextView para mostrar el día con más ventas -->
-
-
-    <TextView
-        android:id="@+id/tvProductosMasVendidos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Productos más vendidos aparecerán aquí"
-        android:layout_marginTop="16dp" />
-
-    <!-- ListView -->
+    <!-- Lista de resultados -->
     <ListView
         android:id="@+id/listViewResultados"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvResultado"
+        android:layout_marginTop="16dp" />
+</RelativeLayout>

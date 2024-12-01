@@ -2,5 +2,21 @@
     <string name="app_name">NUBE</string>
     <string name="Seleccionar_Fecha">Seleccionar Fecha</string>
     <string name="Realizar_Análisis">Realizar Análisis</string>
+        <string-array name="periodos">
+            <item>Día</item>
+            <item>Mes</item>
+            <item>Año</item>
+        </string-array>
+    <string-array name="periodo_opciones">
+        <item>Día</item>
+        <item>Mes</item>
+        <item>Año</item>
+    </string-array>
+
+    <string-array name="filtro_opciones">
+        <item>General</item>
+        <item>Empleado</item>
+        <item>Producto</item>
+    </string-array>
     <string name="default_result_text">Resultados aparecerán aquí</string>
 </resources>

@@ -21,8 +21,11 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_personas"
+            android:drawablePadding="8dp"
             android:text="Personas"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnEmpresas"
@@ -32,8 +35,11 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_empresas"
+            android:drawablePadding="8dp"
             android:text="Empresas"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <!-- Segunda fila -->
@@ -50,8 +56,11 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_graficas"
+            android:drawablePadding="8dp"
             android:text="Gráficas"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnIA"
@@ -61,8 +70,11 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_ia"
+            android:drawablePadding="8dp"
             android:text="IA"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <!-- Tercera fila -->
@@ -78,8 +90,11 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_analisis"
+            android:drawablePadding="8dp"
             android:text="Análisis"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnPlanes"
@@ -89,8 +104,10 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/rounded_button"
+            android:drawableTop="@drawable/ic_planes"
+            android:drawablePadding="8dp"
             android:text="Planes"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
-
 </LinearLayout>

@@ -5,41 +5,81 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".EmpresaMenuActivity">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <!-- Tarjeta de opciones -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <!-- Botón Facturación -->
+            <Button
+                android:id="@+id/btnFacturacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button"
+                android:drawableStart="@drawable/ic_facturacion"
+                android:drawablePadding="8dp"
+                android:text="Facturación"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <!-- Botón Gestión de Empresa -->
+
+            <!-- Botón Ventas -->
+            <Button
+                android:id="@+id/btnVentas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button"
+                android:drawableStart="@drawable/ic_ventas"
+                android:drawablePadding="8dp"
+                android:text="Ventas"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <!-- Botón Inventarios -->
+            <Button
+                android:id="@+id/btnInventarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:drawableStart="@drawable/ic_inventarios"
+                android:drawablePadding="8dp"
+                android:text="Inventarios"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnGestion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnFacturacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Facturación"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnGestion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gestión de Empresa"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnVentas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ventas"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnInventarios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Inventarios" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:drawableStart="@drawable/ic_gestion"
+        android:drawablePadding="8dp"
+        android:text="Gestión de Empresa"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="494dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
