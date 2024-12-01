@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NUBE</string>
+    <string name="app_name">FinActiva</string>
     <string name="Seleccionar_Fecha">Seleccionar Fecha</string>
     <string name="Realizar_Análisis">Realizar Análisis</string>
     <string-array name="periodos">
