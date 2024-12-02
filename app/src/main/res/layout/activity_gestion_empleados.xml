@@ -30,7 +30,7 @@
         android:layout_height="58dp"
         android:padding="14dp"
         android:text="Añadir Empleado"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

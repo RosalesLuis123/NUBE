@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:text="Guardar Cambios"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textStyle="bold"
                 android:padding="12dp"/>
         </LinearLayout>

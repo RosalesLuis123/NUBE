@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Cliente"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp" />
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Producto"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp" />
 
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar Factura"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

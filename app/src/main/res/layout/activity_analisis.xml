@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/btnFecha"
         android:layout_width="wrap_content"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:layout_height="wrap_content"
         android:layout_below="@id/spnFiltro"
         android:text="Seleccionar Fecha"
@@ -38,7 +38,7 @@
     <Button
         android:id="@+id/btnAnalizar"
         android:layout_width="wrap_content"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnFecha"
         android:text="Realizar Análisis"

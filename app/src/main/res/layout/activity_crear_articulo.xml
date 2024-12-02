@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Guardar Artículo"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="16dp"
                 />

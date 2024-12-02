@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="Editar"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:textColor="#FFFFFF" />
 
     <Button
@@ -37,6 +37,6 @@
         android:layout_height="wrap_content"
         android:text="Eliminar"
         android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:padding="8dp" />
 </LinearLayout>

@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Plan FREE"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:padding="12dp"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Plan MEDIUM"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:padding="12dp"
@@ -116,7 +116,7 @@
                 android:text="Plan PRO"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:padding="12dp"
                 android:layout_marginBottom="8dp"/>
 

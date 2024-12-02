@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Añadir Empresa"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:layout_marginBottom="16dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:padding="14dp"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:text="Añadir Cliente"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />

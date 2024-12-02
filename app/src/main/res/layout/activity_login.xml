@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFF"
+    android:background="#FFFFFF"
     tools:context=".LoginActivity">
 
     <!-- Cuadro de Login -->
@@ -14,7 +14,6 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"
-                android:textColor="#1e1e1e"
+                android:textColor="#1E1E1E"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -92,15 +91,18 @@
             </LinearLayout>
 
             <!-- Botón de Login -->
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="16dp"
+
                 />
+
 
             <!-- Frase de Registro -->
             <TextView
@@ -108,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Don't have an account? Register"
-                android:textColor="#1e1e1e"
+                android:textColor="#1E1E1E"
                 android:gravity="center"
                 android:textSize="14sp" />
         </LinearLayout>

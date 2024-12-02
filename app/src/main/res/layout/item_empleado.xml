@@ -33,14 +33,14 @@
             android:id="@+id/btnEditEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btnDeleteEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:text="Eliminar"
             android:layout_marginStart="8dp" />
     </LinearLayout>

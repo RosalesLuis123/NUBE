@@ -102,7 +102,7 @@
                 android:text="Guardar Empresa"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:padding="12dp"/>
         </LinearLayout>
     </ScrollView>

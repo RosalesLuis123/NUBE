@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Iniciar sesión"
-                android:background="@drawable/rounded_button"
+                style="@style/RoundedButtonStyle"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="16dp" />
         </LinearLayout>
