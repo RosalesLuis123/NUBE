@@ -12,7 +12,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
-
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crear Cliente"
+            android:textColor="#1e1e1e"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="match_parent"

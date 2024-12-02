@@ -7,34 +7,50 @@
     android:background="#FFFFFF"
     tools:context=".GestionEmpleadosActivity">
 
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d1bcff"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Empleados"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
     <!-- RecyclerView para mostrar los empleados -->
 
     <!-- Botón para añadir empleado -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEmpleados"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="555dp"
         android:layout_margin="16dp"
         android:clipToPadding="false"
         android:paddingTop="8dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddEmpleado" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAddEmpleado"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAddEmpleado"
         android:layout_width="388dp"
         android:layout_height="58dp"
+        android:layout_marginTop="16dp"
         android:padding="14dp"
         android:text="Añadir Empleado"
         style="@style/RoundedButtonStyle"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,25 +3,41 @@
     android:layout_width="match_parent"
     android:background="#FFFFFF"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="#FFFFFF"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="8dp">
+        >
+        <!-- Encabezado -->
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d1bcff"
+            android:text="Graficos"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:padding="16dp" />
+
 
         <!-- Título y Barra de gráfico -->
         <TextView
             android:id="@+id/titleBarChart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Barras"
+            android:textColor="@color/black"
+            android:text="Gráfico de Barras de Ventas por Fecha"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginBottom="16dp"/>
@@ -31,12 +47,14 @@
             android:id="@+id/titleLineChart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Líneas"
+            android:textColor="@color/black"
+            android:text="Gráfico de Líneas Evolucion de ventas"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginBottom="16dp"/>
@@ -45,13 +63,15 @@
         <TextView
             android:id="@+id/titlePieChart"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Torta"
+            android:text="Gráfico de Torta Distribucion de Articulos"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChart"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginBottom="16dp"/>
@@ -61,12 +81,14 @@
             android:id="@+id/titleBarChartByArticle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Barras por Artículo"
+            android:text="Gráfico de Barras Venta por Artículo"
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChartByArticle"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginBottom="16dp"/>
@@ -76,12 +98,14 @@
             android:id="@+id/titleStackedBarChart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Barras Apiladas"
+            android:text="Gráfico de Barras Apiladas Venta por Fecha"
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/stackedBarChart"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginBottom="16dp"/>
@@ -91,12 +115,14 @@
             android:id="@+id/titleScatterChart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gráfico de Dispersión"
+            android:text="Gráfico de Dispersión de Relación Artículos y Ventas"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_marginBottom="8dp"/>
         <com.github.mikephil.charting.charts.ScatterChart
             android:id="@+id/scatterChart"
+            android:background="@drawable/rounded_card"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
 

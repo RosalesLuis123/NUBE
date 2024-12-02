@@ -2,8 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    android:background="#FFFFFF">
+
+    <!-- Encabezado -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d1bcff"
+        android:text="Análisis"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:padding="16dp" />
 
     <!-- Spinner para elegir el periodo (Día, Mes, Año) -->
     <Spinner
@@ -11,7 +23,8 @@
         android:background="@drawable/rounded_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/tvHeader"
+        android:layout_marginTop="16dp"
         android:entries="@array/periodo_opciones" />
 
     <!-- Spinner para seleccionar el filtro (General, Empleado, Producto) -->
