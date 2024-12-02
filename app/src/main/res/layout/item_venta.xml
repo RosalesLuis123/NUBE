@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ver Detalle"
-        android:background="@drawable/rounded_button"
+        style="@style/RoundedButtonStyle"
         android:textColor="#FFFFFF"
         android:layout_gravity="end" />
 </LinearLayout>

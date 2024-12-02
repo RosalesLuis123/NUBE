@@ -42,7 +42,7 @@
 
         <Button
             android:id="@+id/btnGuardar"
-            android:background="@drawable/rounded_button"
+            style="@style/RoundedButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar Cliente" />
